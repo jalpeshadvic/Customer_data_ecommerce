@@ -349,9 +349,12 @@ def main():
             st.session_state.Customer_Since = st.date_input('Customer since')
             col1, col2 = st.columns(2)
             with col1:
-                st.session_state.First_purchase_date = st.date_input('First Purchase Date',)
+                min_date = datetime(1980,1,1)
+                max_date = datetime(2021, 9, 30)
+                st.session_state.First_purchase_date = st.date_input('First Purchase Date',min_value=min_date, max_value=max_date)
             with col2:
-                st.session_state.Last_purchase_date = st.date_input('Last Purchase Date',)
+                max_date = datetime(2021, 9, 30)
+                st.session_state.Last_purchase_date = st.date_input('Last Purchase Date', max_value=max_date)
             st.session_state.frequency = st.number_input('Frequency of Customer *', min_value=1)
             st.session_state.discount_amount = st.number_input('Discount Amount *', min_value=0)
 
