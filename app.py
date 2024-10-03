@@ -346,7 +346,9 @@ def main():
                 st.session_state.payment_method = st.selectbox('Payment Method *', ['Easypay', 'Easypay_MA', 'Payaxis', 'apg', 'bankalfalah',
                                                                             'cashatdoorstep', 'cod', 'customercredit', 'easypay_voucher',
                                                                             'financesettlement', 'jazzvoucher', 'jazzwallet', 'mcblite'])
-            st.session_state.Customer_Since = st.date_input('Customer since')
+            min_date = datetime(1980,1,1)
+            max_date = datetime(2021, 9, 30)
+            st.session_state.Customer_Since = st.date_input('Customer since',min_value=min_date, max_value=max_date)
             col1, col2 = st.columns(2)
             with col1:
                 min_date = datetime(1980,1,1)
